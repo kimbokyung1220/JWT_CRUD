@@ -28,6 +28,11 @@ public class PostController {
     }
 
     // 게시글 삭제
+
+    // 게시글 전체조회
+
+    
+    //게시글 상세조회
     
 
 

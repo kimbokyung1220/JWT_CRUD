@@ -17,8 +17,8 @@ public class PostResponseDto {
   private Long id;
   private String title;
   private String content;
-  private Category category;
   private String author;
+  private Category category;
   private List<CommentResponseDto> commentResponseDtoList;
   private LocalDateTime createdAt;
   private LocalDateTime modifiedAt;

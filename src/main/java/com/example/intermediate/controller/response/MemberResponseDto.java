@@ -1,5 +1,6 @@
 package com.example.intermediate.controller.response;
 
+import jdk.jshell.Snippet;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,6 +15,8 @@ import java.time.LocalDateTime;
 public class MemberResponseDto {
   private Long id;
   private String email;
+  private String name;
   private LocalDateTime createdAt;
   private LocalDateTime modifiedAt;
+
 }

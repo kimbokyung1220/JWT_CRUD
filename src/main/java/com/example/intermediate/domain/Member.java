@@ -1,6 +1,7 @@
 package com.example.intermediate.domain;
 
 import com.example.intermediate.controller.request.MemberRequestDto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +11,7 @@ import org.hibernate.Hibernate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Builder
@@ -33,6 +35,14 @@ public class Member extends Timestamped {
     @JsonIgnore
     private String password;
 
+    @OneToMany(mappedBy = "member",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Post> posts;
+
+    @OneToMany(mappedBy = "member",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Comment> comments;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -54,9 +64,4 @@ public class Member extends Timestamped {
         return passwordEncoder.matches(password, this.password);
     }
 
-    public Member(MemberRequestDto memberRequestDto) {
-        this.email = memberRequestDto.getEmail();
-        this.name = memberRequestDto.getName();
-        this.password = memberRequestDto.getPassword();
-    }
 }
