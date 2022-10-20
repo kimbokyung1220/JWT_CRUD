@@ -23,7 +23,7 @@ public class Member extends Timestamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long memberId;
 
     @Column(nullable = false)
     private String email;
@@ -52,7 +52,7 @@ public class Member extends Timestamped {
             return false;
         }
         Member member = (Member) o;
-        return id != null && Objects.equals(id, member.id);
+        return memberId != null && Objects.equals(memberId, member.memberId);
     }
 
     @Override
