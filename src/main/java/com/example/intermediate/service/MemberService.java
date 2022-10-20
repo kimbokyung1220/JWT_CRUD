@@ -77,7 +77,7 @@ public class MemberService {
         tokenToHeaders(tokenDto, httpResponse);
 
         MemberResponseDto loginInfo = MemberResponseDto.builder()
-                .id(memberInfo.getId())
+                .memberId(memberInfo.getMemberId())
                 .email(memberInfo.getName())
                 .createdAt(memberInfo.getCreatedAt())
                 .modifiedAt(memberInfo.getModifiedAt())

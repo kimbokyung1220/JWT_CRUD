@@ -18,7 +18,7 @@ public class Post extends Timestamped {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private Long postId;
 
   @Column(nullable = false)
   private String title;
@@ -42,6 +42,7 @@ public class Post extends Timestamped {
   public void update(PostRequestDto postRequestDto) {
     this.title = postRequestDto.getTitle();
     this.content = postRequestDto.getContent();
+    this.category = postRequestDto.getCategory();
   }
 
   public boolean validateMember(Member member) {
